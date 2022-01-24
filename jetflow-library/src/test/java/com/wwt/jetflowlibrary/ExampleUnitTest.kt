@@ -1,4 +1,4 @@
-package com.wwt.jetflow
+package com.wwt.jetflowlibrary
 
 import org.junit.Test
 
