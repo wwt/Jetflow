@@ -7,7 +7,7 @@ class WelcomeViewModelTest {
     private val testObject: WelcomeViewModel = WelcomeViewModel()
 
     @Test
-    fun `on init state welcome text should be load welcome text should be Welcome to Himalaya Creamery`(){
-        Assert.assertEquals(testObject.viewState.value.welcomeText, "Welcome to Himalaya Creamery")
+    fun `on init state welcome text should be load welcome text should be Welcome to Jetflow`(){
+        Assert.assertEquals(testObject.viewState.value.welcomeText, "Welcome to Jetflow")
     }
 }

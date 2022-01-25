@@ -23,6 +23,6 @@ class WelcomeScreenTest {
     @Test
     fun displayWelcomeMessage() {
         // Check app launches at the correct destination
-        composeTestRule.onNodeWithText("Welcome to Himalaya Creamery").assertIsDisplayed()
+        composeTestRule.onNodeWithText("Welcome to Jetflow").assertIsDisplayed()
     }
 }
