@@ -46,6 +46,9 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
 }
 
 tasks.dokkaHtml.configure {
@@ -90,4 +93,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+
+    //Koin DI
+    implementation "io.insert-koin:koin-android:$koin_version"// Koin main features for Android
+    implementation "io.insert-koin:koin-androidx-compose:$koin_version"// Jetpack Compose
 }

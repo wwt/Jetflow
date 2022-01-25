@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Jetflow"
 include ':app'
+include ':jetflow-library'
