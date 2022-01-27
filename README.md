@@ -1,7 +1,7 @@
-![Jetflow]
+Jetflow
 
 <!-- Library Information -->
-[![Supported Platforms](https://img.shields.io/badge/platform-android-lightgrey)]
+![Supported Platforms](https://img.shields.io/badge/platform-android-lightgrey)
 
 # Welcome
 
