@@ -41,7 +41,7 @@ Please review our [style guide](STYLEGUIDE.md) to ensure the least amount of rew
 
 ## Test Etiquette
 - We are big believers in [TDD](https://en.wikipedia.org/wiki/Test-driven_development) and it is the practice we use for writing code. 
-  - You do NOT have to practice TDD, as that's not enforceable. However, your tests should be written to provide the same value. TDD helps (but doesn't guarantee) not only tests, and high coverage but *valuable* tests. If you do a bunch of `XCTAssertNotNil(thing)` on things that should never be nil all your test did was get coverage numbers up, it didn't really assert anything we care about.
+  - You do NOT have to practice TDD, as that's not enforceable. However, your tests should be written to provide the same value. TDD helps (but doesn't guarantee) not only tests, and high coverage but *valuable* tests. If you do a bunch of `AssertNotNull(thing)` on things that should never be null all your test did was get coverage numbers up, it didn't really assert anything we care about.
   - If you do not use TDD please comment out your production code, then run your tests. Make sure they *fail*, then slowly bring back your production code a few lines at a time all while running your tests. If they turn *green* before you have all your code back, you have more to cover.
 - Prefer [sociable unit tests](https://martinfowler.com/bliki/UnitTest.html) to solitary or "strict" unit tests.
   - Specifically this should indicate to you that tests are driven as much as possible from the public API layer. Our unit tests mimic how developers consume our library, and assert that it behaves as expected.
@@ -58,7 +58,7 @@ We use a version of [semantic versioning](https://semver.org/#summary). Our sema
 * Minor version changes when something of consequence happens, e.g. new feature, bug fix that impacts numerous areas, adding deprecation warnings.
 * Patch version always changes.
 
-We strive to have this process automated. Patch increments with every commit to trunk, through the CI/CD pipeline. Major and Minor are currently updated through a script when the `podspec`'s version is manually updated and your PR gets to trunk.
+We strive to have this process automated. Patch increments with every commit to trunk, through the CI/CD pipeline.
 
 ### Deprecation
 We want to give consumers of our code the opportunity to adapt to changes, outright removal means we'll constantly be breaking down-stream teams and that's a good way to frustrate developers.
@@ -95,6 +95,6 @@ It also serves as our very own "best practice" guide. The code that's in there s
 ## Errors
 We believe the best developer experience for errors lies in their interactions with their compiler. Compiler errors force developers to solve for edge cases before the code is running, and long before the code is in production. They also reduce testing overhead, there's really not much point in unit testing an error that can't compile.
 
-Because of this we strive for compiler errors where possible, we will effectively use generics for type safety, and we will use annotations like `@deprecated`, `@unavailable`, and `@available(*, unavailable, renamed:)`. When we run into situations where a runtime error is the only reasonable option, we document it and we write good tests around it. We also prefer the most noticeable errors we can have for the best developer experience.
+Because of this we strive for compiler errors where possible, we will effectively use generics for type safety, and we will use annotations like `@deprecated`. When we run into situations where a runtime error is the only reasonable option, we document it and we write good tests around it. We also prefer the most noticeable errors we can have for the best developer experience.
 
 For example, sometimes a `throws` method is both a good developer experience and a clear error scenario. Other times making something throw just adds overhead. So we might prefer a `fatalError` with a clear description of the problem, fatal errors are noticeable when they happen, app execution stops. This means developers have a greater chance of noticing that something has gone wrong. We DO NOT like having errors that only print to the console, this is difficult to spot and generally unhelpful.
