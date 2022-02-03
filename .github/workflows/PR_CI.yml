@@ -1,9 +1,6 @@
-name: Android_CI
+name: PR_CI
 
-on:	
-  workflow_dispatch:
-  push:
-    branches: [ main ]
+on:	[ pull_request ]
     
 jobs:
   test:
