@@ -1,10 +1,10 @@
 name: Android_CI
 
 on:	push
-#  workflow_dispatch:
-#  push:
-#    branches: [ main ]
-    
+  #  workflow_dispatch:
+  #  push:
+  #    branches: [ main ]
+
 jobs:
   test:
     name: Run Unit Tests
@@ -19,7 +19,8 @@ jobs:
           distribution: 'temurin'
           cache: gradle
       - name: Unit tests
-        run: bash ./gradlew test --stacktrace# Execute unit tests
+        run: bash ./gradlew test --stacktrace
+        # Execute unit tests
       - name: Unit Test with Android Emulator Runner
         uses: ReactiveCircus/android-emulator-runner@v2.14.3
         with:
@@ -27,24 +28,24 @@ jobs:
           script: ./gradlew connectedCheck
             #./gradlew createDebugCoverageReport:
 
-            # run: ./gradlew testDebugUnitTest
+          # run: ./gradlew testDebugUnitTest
 
-        - name: generate report
-          uses: actions/upload-artifact@v2
-          with:
-            name: report
-            path: app/build/reports/coverage/debug
-                # path: app/build/test-results
+      - name: generate report
+        uses: actions/upload-artifact@v2
+        with:
+          name: report
+          path: app/build/reports/coverage/debug
+          # path: app/build/test-results
 
 
-        - name: Download Test Reports Folder
-          uses: actions/download-artifact@v2
-          with:
-            name: report
-            path: app/build/reports/coverage/debug
+      - name: Download Test Reports Folder
+        uses: actions/download-artifact@v2
+        with:
+          name: report
+          path: app/build/reports/coverage/debug
 
-        - name: Upload Test Report
-            run: bash <(curl -s https://codecov.io/bash) -f "app/build/reports/coverage/debug/report.xml"
+      - name: Upload Test Report
+        run: bash <(curl -s https://codecov.io/bash) -f "app/build/reports/coverage/debug/report.xml"
 
 
   build:
