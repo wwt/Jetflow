@@ -16,7 +16,13 @@ jobs:
           distribution: 'temurin'
           cache: gradle
       - name: Unit tests
-        run: bash ./gradlew test --stacktrace
+        uses: ReactiveCircus/android-emulator-runner@v2.14.3
+        with:
+          api-level: 29
+          script: ./gradlew connectedCheck
+      - uses: codecov/codecov-action@v2
+        with:
+          fail_ci_if_error: true # optional (default = false)
 
   build:
     name: Build project
