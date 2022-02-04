@@ -1,9 +1,9 @@
 name: Android_CI
 
-on:	push
-  #  workflow_dispatch:
-  #  push:
-#    branches: [ main ]
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
 
 jobs:
   test:
@@ -24,12 +24,8 @@ jobs:
           api-level: 29
           script: ./gradlew connectedCheck
       - uses: codecov/codecov-action@v2
-#        with:
-#          files: ./coverage1.xml,./coverage2.xml # optional
-#          flags: unittests # optional
-#          name: codecov-umbrella # optional
-#          fail_ci_if_error: true # optional (default = false)
-#          verbose: true # optional (default = false)
+        with:
+          fail_ci_if_error: true # optional (default = false)
 
 
   build:
