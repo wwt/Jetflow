@@ -19,7 +19,7 @@ jobs:
           distribution: 'temurin'
           cache: gradle
       - name: Unit tests
-        run: bash ./gradlew test --stacktrace
+        run: bash ./gradlew connectedCheck --stacktrace
       - uses: actions/checkout@master
       - uses: codecov/codecov-action@v2
         with:
