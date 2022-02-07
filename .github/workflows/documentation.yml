@@ -1,10 +1,10 @@
 name: Deploy_documentation
-on: [ push ]
-#   workflow_dispatch:
-#   workflow_run:
-#     workflows: [ "CI" ]
-#     branches: [ main ]
-#     types: [ completed ]
+on:
+   workflow_dispatch:
+   workflow_run:
+     workflows: [ "CI" ]
+     branches: [ main ]
+     types: [ completed ]
 
 jobs:
   publish:
