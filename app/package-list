@@ -1,0 +1,53 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:com.wwt.jetflow.base////PointingToDeclaration/app/com.wwt.jetflow.base/index.html
+$dokka.location:com.wwt.jetflow.base/BaseActivity///PointingToDeclaration/app/com.wwt.jetflow.base/-base-activity/index.html
+$dokka.location:com.wwt.jetflow.base/BaseActivity/BaseActivity/#/PointingToDeclaration/app/com.wwt.jetflow.base/-base-activity/-base-activity.html
+$dokka.location:com.wwt.jetflow.base/BaseViewModel///PointingToDeclaration/app/com.wwt.jetflow.base/-base-view-model/index.html
+$dokka.location:com.wwt.jetflow.base/BaseViewModel/BaseViewModel/#/PointingToDeclaration/app/com.wwt.jetflow.base/-base-view-model/-base-view-model.html
+$dokka.location:com.wwt.jetflow.base/BaseViewModel/effect/#/PointingToDeclaration/app/com.wwt.jetflow.base/-base-view-model/effect.html
+$dokka.location:com.wwt.jetflow.base/BaseViewModel/handleEvents/#TypeParam(bounds=[com.wwt.jetflow.base.ViewEvent])/PointingToDeclaration/app/com.wwt.jetflow.base/-base-view-model/handle-events.html
+$dokka.location:com.wwt.jetflow.base/BaseViewModel/setEvent/#TypeParam(bounds=[com.wwt.jetflow.base.ViewEvent])/PointingToDeclaration/app/com.wwt.jetflow.base/-base-view-model/set-event.html
+$dokka.location:com.wwt.jetflow.base/BaseViewModel/setInitialState/#/PointingToDeclaration/app/com.wwt.jetflow.base/-base-view-model/set-initial-state.html
+$dokka.location:com.wwt.jetflow.base/BaseViewModel/viewState/#/PointingToDeclaration/app/com.wwt.jetflow.base/-base-view-model/view-state.html
+$dokka.location:com.wwt.jetflow.base/ViewEvent///PointingToDeclaration/app/com.wwt.jetflow.base/-view-event/index.html
+$dokka.location:com.wwt.jetflow.base/ViewSideEffect///PointingToDeclaration/app/com.wwt.jetflow.base/-view-side-effect/index.html
+$dokka.location:com.wwt.jetflow.base/ViewState///PointingToDeclaration/app/com.wwt.jetflow.base/-view-state/index.html
+$dokka.location:com.wwt.jetflow.ui.theme////PointingToDeclaration/app/com.wwt.jetflow.ui.theme/index.html
+$dokka.location:com.wwt.jetflow.ui.theme//JetflowTheme/#kotlin.Boolean#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/app/com.wwt.jetflow.ui.theme/-jetflow-theme.html
+$dokka.location:com.wwt.jetflow.ui.theme//Purple200/#/PointingToDeclaration/app/com.wwt.jetflow.ui.theme/-purple200.html
+$dokka.location:com.wwt.jetflow.ui.theme//Purple500/#/PointingToDeclaration/app/com.wwt.jetflow.ui.theme/-purple500.html
+$dokka.location:com.wwt.jetflow.ui.theme//Purple700/#/PointingToDeclaration/app/com.wwt.jetflow.ui.theme/-purple700.html
+$dokka.location:com.wwt.jetflow.ui.theme//Shapes/#/PointingToDeclaration/app/com.wwt.jetflow.ui.theme/-shapes.html
+$dokka.location:com.wwt.jetflow.ui.theme//Teal200/#/PointingToDeclaration/app/com.wwt.jetflow.ui.theme/-teal200.html
+$dokka.location:com.wwt.jetflow.ui.theme//Typography/#/PointingToDeclaration/app/com.wwt.jetflow.ui.theme/-typography.html
+$dokka.location:com.wwt.jetflow.welcome////PointingToDeclaration/app/com.wwt.jetflow.welcome/index.html
+$dokka.location:com.wwt.jetflow.welcome//WelcomeScreen/#com.wwt.jetflow.welcome.WelcomeScreenContract.State#kotlinx.coroutines.flow.Flow[com.wwt.jetflow.welcome.WelcomeScreenContract.Effect]?#kotlin.Function1[com.wwt.jetflow.welcome.WelcomeScreenContract.Event,kotlin.Unit]/PointingToDeclaration/app/com.wwt.jetflow.welcome/-welcome-screen.html
+$dokka.location:com.wwt.jetflow.welcome/WelcomeScreenContract.Effect///PointingToDeclaration/app/com.wwt.jetflow.welcome/-welcome-screen-contract/-effect/index.html
+$dokka.location:com.wwt.jetflow.welcome/WelcomeScreenContract.Event///PointingToDeclaration/app/com.wwt.jetflow.welcome/-welcome-screen-contract/-event/index.html
+$dokka.location:com.wwt.jetflow.welcome/WelcomeScreenContract.State///PointingToDeclaration/app/com.wwt.jetflow.welcome/-welcome-screen-contract/-state/index.html
+$dokka.location:com.wwt.jetflow.welcome/WelcomeScreenContract.State/State/#kotlin.String/PointingToDeclaration/app/com.wwt.jetflow.welcome/-welcome-screen-contract/-state/-state.html
+$dokka.location:com.wwt.jetflow.welcome/WelcomeScreenContract.State/welcomeText/#/PointingToDeclaration/app/com.wwt.jetflow.welcome/-welcome-screen-contract/-state/welcome-text.html
+$dokka.location:com.wwt.jetflow.welcome/WelcomeScreenContract///PointingToDeclaration/app/com.wwt.jetflow.welcome/-welcome-screen-contract/index.html
+$dokka.location:com.wwt.jetflow.welcome/WelcomeScreenContract/WelcomeScreenContract/#/PointingToDeclaration/app/com.wwt.jetflow.welcome/-welcome-screen-contract/-welcome-screen-contract.html
+$dokka.location:com.wwt.jetflow.welcome/WelcomeViewModel///PointingToDeclaration/app/com.wwt.jetflow.welcome/-welcome-view-model/index.html
+$dokka.location:com.wwt.jetflow.welcome/WelcomeViewModel/WelcomeViewModel/#/PointingToDeclaration/app/com.wwt.jetflow.welcome/-welcome-view-model/-welcome-view-model.html
+$dokka.location:com.wwt.jetflow.welcome/WelcomeViewModel/handleEvents/#com.wwt.jetflow.welcome.WelcomeScreenContract.Event/PointingToDeclaration/app/com.wwt.jetflow.welcome/-welcome-view-model/handle-events.html
+$dokka.location:com.wwt.jetflow.welcome/WelcomeViewModel/setInitialState/#/PointingToDeclaration/app/com.wwt.jetflow.welcome/-welcome-view-model/set-initial-state.html
+$dokka.location:com.wwt.jetflow////PointingToDeclaration/app/com.wwt.jetflow/index.html
+$dokka.location:com.wwt.jetflow//DefaultPreview/#/PointingToDeclaration/app/com.wwt.jetflow/-default-preview.html
+$dokka.location:com.wwt.jetflow//Greeting/#kotlin.String/PointingToDeclaration/app/com.wwt.jetflow/-greeting.html
+$dokka.location:com.wwt.jetflow//JetflowApp/#/PointingToDeclaration/app/com.wwt.jetflow/-jetflow-app.html
+$dokka.location:com.wwt.jetflow/AppModule///PointingToDeclaration/app/com.wwt.jetflow/-app-module/index.html
+$dokka.location:com.wwt.jetflow/AppModule/init/#/PointingToDeclaration/app/com.wwt.jetflow/-app-module/init.html
+$dokka.location:com.wwt.jetflow/JetflowApplication///PointingToDeclaration/app/com.wwt.jetflow/-jetflow-application/index.html
+$dokka.location:com.wwt.jetflow/JetflowApplication/JetflowApplication/#/PointingToDeclaration/app/com.wwt.jetflow/-jetflow-application/-jetflow-application.html
+$dokka.location:com.wwt.jetflow/JetflowApplication/onCreate/#/PointingToDeclaration/app/com.wwt.jetflow/-jetflow-application/on-create.html
+$dokka.location:com.wwt.jetflow/JetflowApplication/onTerminate/#/PointingToDeclaration/app/com.wwt.jetflow/-jetflow-application/on-terminate.html
+$dokka.location:com.wwt.jetflow/MainActivity///PointingToDeclaration/app/com.wwt.jetflow/-main-activity/index.html
+$dokka.location:com.wwt.jetflow/MainActivity/MainActivity/#/PointingToDeclaration/app/com.wwt.jetflow/-main-activity/-main-activity.html
+com.wwt.jetflow
+com.wwt.jetflow.base
+com.wwt.jetflow.ui.theme
+com.wwt.jetflow.welcome
+
