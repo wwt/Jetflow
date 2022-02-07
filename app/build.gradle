@@ -61,15 +61,15 @@ android {
 }
 
 tasks.dokkaHtml.configure {
-    outputDirectory.set(file("../documentation/html"))
+    outputDirectory.set(file("../app/build/documentation/html"))
 }
 
 tasks.dokkaJavadoc.configure {
-    outputDirectory.set(file("../documentation/javadoc"))
+    outputDirectory.set(file("../app/build/documentation/javadoc"))
 }
 
 tasks.dokkaGfm.configure {
-    outputDirectory.set(file("../documentation/gfm"))
+    outputDirectory.set(file("../app/build/documentation/gfm"))
 }
 
 tasks.withType(dokkaHtml.getClass()).configureEach {
