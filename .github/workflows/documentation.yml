@@ -27,4 +27,4 @@ jobs:
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: build/dokka/html
+          FOLDER: app/build/dokka/html
