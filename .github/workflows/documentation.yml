@@ -1,0 +1,27 @@
+name: Deploy_documentation
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: [ "CI" ]
+    branches: [ main ]
+    types: [ completed ]
+
+jobs:
+  publish:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - name: Build documentation
+        run: ./gradlew dokkaHtml
+      - name: Publish documentation
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: build/docs
