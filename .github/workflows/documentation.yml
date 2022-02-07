@@ -21,7 +21,7 @@ jobs:
           cache: gradle
       - name: Build documentation
         run: ./gradlew dokkaHtml
-        working-directory: app/build
+        working-directory: ./app/build
 
       - name: Publish documentation
         uses: JamesIves/github-pages-deploy-action@releases/v3
