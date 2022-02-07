@@ -21,11 +21,10 @@ jobs:
           cache: gradle
       - name: Build documentation
         run: ./gradlew dokkaHtml
-        working-directory: ./app/build
 
       - name: Publish documentation
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
 #          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: ../app/build/documentation/html
+          FOLDER: build/dokka/html
