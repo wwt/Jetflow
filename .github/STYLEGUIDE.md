@@ -304,7 +304,7 @@ when (anInput) {
 
 ## Types 
 
-Always use Kotlin's native types when available. Kotlin is JVM-compatible so **[TODO: more info]**
+Always use Kotlin's native types when available. In Kotlin, everything is an object, which means we can call member function and properties on any variable. Kotlin is JVM-compatible so **[more info](https://kotlinlang.org/docs/basic-types.html)**
 
 ### Type Inference
 
@@ -332,7 +332,26 @@ Constants are defined using the `val` keyword, and variables with the `var` keyw
 
 ### Companion Objects
 
-** TODO: A bunch of stuff about companion objects **
+Kotlin doesn’t have static members or member functions. Companion objects are singleton objects whose properties and functions are tied to a class but not to the instance of that class — basically like the “static” keyword in Java but with a twist.
+
+Let’s look at some simple example:
+class YourClass {
+    companion object { // Equivalent to "companion object Companion"
+    }
+}
+Companion objects allow their members to be accessed from inside the companion class without specifying the name.
+
+At the same time, visible members can be accessed from outside the class when prefixed by the class name:
+
+class YourClass {
+    companion object {
+        val message = "This is companion object"
+    }
+}
+
+to access message value just call YourClass.message
+
+Read more about [companion objects](https://kotlinlang.org/docs/object-declarations.html#companion-objects)
 
 ### Nullable Types
 
@@ -367,4 +386,4 @@ val colorName = "red"
 
 ## Attribution:
 - Parts of the styleguide also inspired by [Android Kotlin style guide](https://android.github.io/kotlin-guides/style.html), Thanks Google!
-- Parts of the styleguide also inspired by [The Official raywenderlich.com Kotlin Style Guide](https://github.com/raywenderlich/swift-style-guide), Thanks Ray Wenderlich!
+- Parts of the styleguide also inspired by [The Official raywenderlich.com Kotlin Style Guide](https://github.com/raywenderlich/kotlin-style-guide), Thanks Ray Wenderlich!
