@@ -304,7 +304,7 @@ when (anInput) {
 
 ## Types 
 
-Always use Kotlin's native types when available. In Kotlin, everything is an object, which means we can call member function and properties on any variable. Kotlin is JVM-compatible so **[more info](https://kotlinlang.org/docs/basic-types.html)**
+Always use Kotlin's native types when available. In Kotlin, everything is an object, which means we can call member function and properties on any variable. **[Read more about Kotin Types](https://kotlinlang.org/docs/basic-types.html)**
 
 ### Type Inference
 
