@@ -135,4 +135,6 @@ dependencies {
     //Koin DI
     implementation "io.insert-koin:koin-android:$koin_version"// Koin main features for Android
     implementation "io.insert-koin:koin-androidx-compose:$koin_version"// Jetpack Compose
+
+    implementation(project(":jetflow-library"))
 }
