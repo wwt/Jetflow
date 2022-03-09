@@ -7,15 +7,8 @@ import androidx.compose.runtime.Immutable
 import java.nio.ByteBuffer
 import java.util.*
 
-/**
- * A unique identifier of a navigation unit. Uses [UUID] internally, so it inherits the same
- * guarantees of uniqueness.
- *
- * In addition to the [UUID] uniqueness implements [Parcelable] interface and provides shorter
- * `toString()` output in Base64 format.
- */
 @Immutable
-data class NavId(private val uuid: UUID = UUID.randomUUID()) : Parcelable {
+data class NavigationId(private val uuid: UUID = UUID.randomUUID()) : Parcelable {
 
     private constructor(parcel: Parcel) : this(UUID(parcel.readLong(), parcel.readLong()))
 
@@ -26,12 +19,12 @@ data class NavId(private val uuid: UUID = UUID.randomUUID()) : Parcelable {
 
     override fun describeContents(): Int = 0
 
-    companion object CREATOR : Parcelable.Creator<NavId> {
-        override fun createFromParcel(parcel: Parcel): NavId {
-            return NavId(parcel)
+    companion object CREATOR : Parcelable.Creator<NavigationId> {
+        override fun createFromParcel(parcel: Parcel): NavigationId {
+            return NavigationId(parcel)
         }
 
-        override fun newArray(size: Int): Array<NavId?> {
+        override fun newArray(size: Int): Array<NavigationId?> {
             return arrayOfNulls(size)
         }
     }

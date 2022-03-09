@@ -3,32 +3,23 @@ package com.wwt.jetflowlibrary.navigation
 import android.app.Application
 import android.os.Bundle
 import android.os.Parcelable
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.derivedStateOf
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.SaveableStateHolder
 import androidx.compose.runtime.saveable.listSaver
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.saveable.rememberSaveableStateHolder
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.platform.LocalSavedStateRegistryOwner
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleEventObserver
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelStore
-import androidx.lifecycle.ViewModelStoreOwner
+import androidx.lifecycle.*
 import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
 import androidx.savedstate.SavedStateRegistry
 import kotlinx.parcelize.Parcelize
 
 @Composable
-internal fun <T> rememberNavComponentHolder(
-    backstack: NavBackstack<T>
-): NavComponentHolder<T> {
+internal fun <T> rememberNavigationComponentHolder(
+    backstack: NavigationBackstack<T>
+): NavigationComponentHolder<T> {
     val saveableStateHolder = rememberSaveableStateHolder()
     val viewModelStoreOwner = LocalViewModelStoreOwner.current!!
     val lifecycle = LocalLifecycleOwner.current.lifecycle
@@ -42,21 +33,21 @@ internal fun <T> rememberNavComponentHolder(
             save = { listOf(it.id, it.componentIds.toTypedArray()) },
             restore = { restored ->
                 @Suppress("UNCHECKED_CAST")
-                (NavComponentHolder(
-        id = restored[0] as NavHolderId,
-        restoredComponentIds = (restored[1] as Array<Parcelable>).map { it as NavId }
-            .toSet(),
-        initialBackstack = backstack,
-        saveableStateHolder = saveableStateHolder,
-        navHostViewModelStoreOwner = viewModelStoreOwner,
-        navHostLifecycle = lifecycle,
-        navHostSavedStateRegistry = savedStateRegistry,
-        application = application
-    ))
+                (NavigationComponentHolder(
+                    id = restored[0] as NavigationHolderId,
+                    restoredComponentIds = (restored[1] as Array<Parcelable>).map { it as NavigationId }
+                        .toSet(),
+                    initialBackstack = backstack,
+                    saveableStateHolder = saveableStateHolder,
+                    navHostViewModelStoreOwner = viewModelStoreOwner,
+                    navHostLifecycle = lifecycle,
+                    navHostSavedStateRegistry = savedStateRegistry,
+                    application = application
+                ))
             }
         )
     ) {
-        NavComponentHolder(
+        NavigationComponentHolder(
             initialBackstack = backstack,
             saveableStateHolder = saveableStateHolder,
             navHostViewModelStoreOwner = viewModelStoreOwner,
@@ -78,17 +69,17 @@ private const val PACKAGE_KEY = "dev.olshevski.navigation.reimagined.key"
  */
 @Parcelize
 @JvmInline
-internal value class NavHolderId(private val id: NavId = NavId()) : Parcelable {
+internal value class NavigationHolderId(private val id: NavigationId = NavigationId()) : Parcelable {
     override fun toString(): String = id.toString()
 }
 
 /**
  * Stores and manages all components (lifecycles, saved states, view models).
  */
-internal class NavComponentHolder<T>(
-    val id: NavHolderId = NavHolderId(),
-    restoredComponentIds: Set<NavId> = emptySet(),
-    initialBackstack: NavBackstack<T>,
+internal class NavigationComponentHolder<T>(
+    val id: NavigationHolderId = NavigationHolderId(),
+    restoredComponentIds: Set<NavigationId> = emptySet(),
+    initialBackstack: NavigationBackstack<T>,
     private val saveableStateHolder: SaveableStateHolder,
     navHostViewModelStoreOwner: ViewModelStoreOwner,
     private val navHostLifecycle: Lifecycle,
@@ -103,13 +94,13 @@ internal class NavComponentHolder<T>(
     }
 
     private val viewModelStoreProvider: ViewModelStoreProvider =
-        ViewModelProvider(navHostViewModelStoreOwner)["$PACKAGE_KEY:$id", NavHostViewModel::class.java]
+        ViewModelProvider(navHostViewModelStoreOwner)["$PACKAGE_KEY:$id", NavigationHostViewModel::class.java]
 
     private var navHostLifecycleState: Lifecycle.State = Lifecycle.State.INITIALIZED
 
-    private val componentEntries = mutableMapOf<NavId, NavComponentEntry<T>>()
+    private val componentEntries = mutableMapOf<NavigationId, NavigationComponentEntry<T>>()
 
-    val componentIds get() = componentEntries.keys as Set<NavId>
+    val componentIds get() = componentEntries.keys as Set<NavigationId>
 
     init {
         // We need to restore all previous component entries, which in return restore their own
@@ -140,15 +131,10 @@ internal class NavComponentHolder<T>(
                 newComponentEntry(lastEntry)
             }
         }
-    }.also {
+    }.also { it ->
         // this block will be executed only when a new distinct entry is set
         val newLastComponentEntry = it.value
 
-        // Before transition:
-        // - all entries except lastComponentEntry are capped at STARTED state
-        // - lastComponentEntry gets promoted to STARTED state
-        //
-        // Further state changes will be done when transition finishes.
         componentEntries.values
             .filter { it != newLastComponentEntry }
             .forEach {
@@ -157,8 +143,8 @@ internal class NavComponentHolder<T>(
         newLastComponentEntry?.maxLifecycleState = Lifecycle.State.STARTED
     }
 
-    private fun newComponentEntry(entry: NavEntry<T>): NavComponentEntry<T> {
-        val componentEntry = NavComponentEntry(
+    private fun newComponentEntry(entry: NavigationEntry<T>): NavigationComponentEntry<T> {
+        val componentEntry = NavigationComponentEntry(
             entry = entry,
             saveableStateHolder = saveableStateHolder,
             viewModelStore = viewModelStoreProvider.getViewModelStore(entry.id),
@@ -184,7 +170,7 @@ internal class NavComponentHolder<T>(
         return componentEntry
     }
 
-    private fun savedStateKey(entryId: NavId) = "$PACKAGE_KEY:$id:$entryId"
+    private fun savedStateKey(entryId: NavigationId) = "$PACKAGE_KEY:$id:$entryId"
 
     fun onCreate() {
         cleanupComponentEntries()
@@ -217,7 +203,7 @@ internal class NavComponentHolder<T>(
     /**
      * Unregister saved state provider and cleanup view models for the specified entry id.
      */
-    private fun removeComponents(entryId: NavId) {
+    private fun removeComponents(entryId: NavigationId) {
         navHostSavedStateRegistry.unregisterSavedStateProvider(savedStateKey(entryId))
         viewModelStoreProvider.removeViewModelStore(entryId)
         saveableStateHolder.removeState(entryId)
@@ -244,20 +230,20 @@ internal class NavComponentHolder<T>(
 
 private interface ViewModelStoreProvider {
 
-    fun getViewModelStore(id: NavId): ViewModelStore
-    fun removeViewModelStore(id: NavId)
+    fun getViewModelStore(id: NavigationId): ViewModelStore
+    fun removeViewModelStore(id: NavigationId)
 
 }
 
-internal class NavHostViewModel : ViewModel(), ViewModelStoreProvider {
+internal class NavigationHostViewModel : ViewModel(), ViewModelStoreProvider {
 
-    private val viewModelStores = mutableMapOf<NavId, ViewModelStore>()
+    private val viewModelStores = mutableMapOf<NavigationId, ViewModelStore>()
 
-    override fun getViewModelStore(id: NavId) = viewModelStores.getOrPut(id) {
+    override fun getViewModelStore(id: NavigationId) = viewModelStores.getOrPut(id) {
         ViewModelStore()
     }
 
-    override fun removeViewModelStore(id: NavId) {
+    override fun removeViewModelStore(id: NavigationId) {
         viewModelStores.remove(id)?.also { it.clear() }
     }
 
