@@ -2,6 +2,7 @@ package com.wwt.jetflowlibrary.navigation
 
 import android.os.Parcel
 import android.os.Parcelable
+import android.util.Log
 import androidx.annotation.MainThread
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -38,18 +39,17 @@ fun <T> SavedStateHandle.navigationController(
 fun <T> SavedStateHandle.navigationController(
     key: String? = null,
     startDestination: T
-) = navigationController(key, kotlin.collections.listOf(startDestination))
-
+) = navigationController(key, listOf(startDestination))
 
 @Stable
 class NavigationController<T> internal constructor(
     initialEntries: List<NavigationEntry<T>>,
     initialAction: NavigationAction = NavigationAction.Idle
-) {
+) : Parcelable {
 
     private val entries = mutableStateOf(initialEntries)
 
-    private val action = mutableStateOf<NavigationAction>(initialAction)
+    private val action = mutableStateOf(initialAction)
 
 
     val backstack = NavigationBackstack(entries, action)
@@ -65,8 +65,26 @@ class NavigationController<T> internal constructor(
         onBackstackChange?.invoke(backstack)
     }
 
-    override fun toString(): String {
-        return "NavController(entries=${entries.value}, action=${action.value})"
+    override fun describeContents() = 0
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        entries.value.let { backstack ->
+            // This handles the case when some NavEntries instance appear in the backstack several
+            // times. After the restoration their instances must not be duplicated.
+            val ids = hashSetOf<NavigationId>()
+            parcel.writeInt(backstack.size)
+            backstack.forEach {
+                // write every id to preserve the order
+                parcel.writeParcelable(it.id, flags)
+                if (it.id !in ids) {
+                    ids.add(it.id)
+                    // but write a destination only once, because there is no need to duplicate
+                    // existing data
+                    parcel.writeValue(it.destination)
+                }
+            }
+        }
+        parcel.writeParcelable(action.value, flags)
     }
 
     companion object CREATOR : Parcelable.ClassLoaderCreator<NavigationController<*>> {
@@ -81,7 +99,6 @@ class NavigationController<T> internal constructor(
                 initialEntries = List(parcel.readInt()) {
                     val id = parcel.readParcelable<NavigationId>(classLoader)!!
                     entryMap.getOrPut(id) {
-
                         NavigationEntry(
                             id = id,
                             destination = parcel.readValue(classLoader)
@@ -99,23 +116,6 @@ class NavigationController<T> internal constructor(
             return arrayOfNulls(size)
         }
 
-    }
-
-}
-
-
-@Stable
-class NavigationBackstack<T> internal constructor(
-    entriesState: State<List<NavigationEntry<T>>>,
-    actionState: State<NavigationAction>
-) {
-
-    val entries: List<NavigationEntry<T>> by entriesState
-
-    val action: NavigationAction by actionState
-
-    override fun toString(): String {
-        return "NavBackstack(entries=$entries, action=$action)"
     }
 
 }

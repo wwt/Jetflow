@@ -28,12 +28,4 @@ data class NavigationId(private val uuid: UUID = UUID.randomUUID()) : Parcelable
             return arrayOfNulls(size)
         }
     }
-
-    override fun toString(): String {
-        val byteBuffer = ByteBuffer.allocate(16)
-        byteBuffer.putLong(uuid.mostSignificantBits)
-        byteBuffer.putLong(uuid.leastSignificantBits)
-        return Base64.encodeToString(byteBuffer.array(), Base64.NO_WRAP or Base64.NO_PADDING)
-    }
-
 }

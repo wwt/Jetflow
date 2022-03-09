@@ -61,7 +61,7 @@ internal fun <T> rememberNavigationComponentHolder(
     }
 }
 
-private const val PACKAGE_KEY = "dev.olshevski.navigation.reimagined.key"
+private const val PACKAGE_KEY = "com.wwt.jetflowlibrary.navigation.key"
 
 /**
  * Used for differentiating holder id from entry ids, because when everything is named id it is
@@ -69,9 +69,7 @@ private const val PACKAGE_KEY = "dev.olshevski.navigation.reimagined.key"
  */
 @Parcelize
 @JvmInline
-internal value class NavigationHolderId(private val id: NavigationId = NavigationId()) : Parcelable {
-    override fun toString(): String = id.toString()
-}
+internal value class NavigationHolderId(private val id: NavigationId = NavigationId()) : Parcelable {}
 
 /**
  * Stores and manages all components (lifecycles, saved states, view models).

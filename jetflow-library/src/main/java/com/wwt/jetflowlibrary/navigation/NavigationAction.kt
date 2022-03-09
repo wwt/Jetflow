@@ -7,23 +7,15 @@ import kotlinx.parcelize.Parcelize
 abstract class NavigationAction : Parcelable {
 
     @Parcelize
-    object Idle : NavigationAction() {
-        override fun toString() = this::class.simpleName!!
-    }
+    object Idle : NavigationAction() {}
 
     @Parcelize
-    object Navigate : NavigationAction() {
-        override fun toString() = this::class.simpleName!!
-    }
+    object Navigate : NavigationAction() {}
 
     @Parcelize
-    object Replace : NavigationAction() {
-        override fun toString() = this::class.simpleName!!
-    }
+    object Replace : NavigationAction() {}
 
     @Parcelize
-    object Pop : NavigationAction() {
-        override fun toString() = this::class.simpleName!!
-    }
+    object Pop : NavigationAction() {}
 
 }
