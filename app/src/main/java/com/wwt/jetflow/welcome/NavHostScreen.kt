@@ -16,63 +16,63 @@ import com.wwt.jetflowlibrary.navigation.*
 @Composable
 fun NavHostScreen() {
     val navController = rememberNavigationController<NavHostDestination>(
-        startDestination = NavHostDestination.First,
+        startDestination = NavHostDestination.Login,
     )
 
     NavigationBackHandler(navController)
 
-    NavigationHost(controller = navController) { destination ->
-        when (destination) {
-            NavHostDestination.First -> FirstScreen(
-                toSecondScreenButtonClick = {
-                    navController.navigate(NavHostDestination.Second(id = 0))
-                },
-            )
-            is NavHostDestination.Second -> SecondScreen(
-                id = destination.id,
-                toSecondScreenButtonClick = {
-                    navController.navigate(NavHostDestination.Second(id = destination.id + 1))
-                },
-                toThirdScreenButtonClick = {
-                    navController.navigate(NavHostDestination.Third)
-                }
-            )
-            NavHostDestination.Third -> ThirdScreen(
-                toForthScreenButtonClick = {
-                    navController.navigate(NavHostDestination.Forth())
-                }
-            )
-            is NavHostDestination.Forth -> {
-                var resultFromFifth by destination.resultFromFifth
-                ForthScreen(
-                    resultFromFifth = resultFromFifth,
-                    toFifthScreenButtonClick = {
-                        navController.navigate(NavHostDestination.Fifth)
-                    },
-                    onClearResultClick = {
-                        resultFromFifth = null
-                    }
-                )
-            }
-            is NavHostDestination.Fifth -> {
-                var text by rememberSaveable { mutableStateOf("") }
-                FifthScreen(
-                    text = text,
-                    onTextChange = { text = it },
-                    backToForthScreenButtonClick = {
-                        val previousDestination = navController.backstack.entries.let {
-                            it[it.lastIndex - 1].destination
-                        }
-                        check(previousDestination is AcceptsResultFromFifth)
-                        previousDestination.resultFromFifth.value = text
-                        navController.pop()
-                    },
-                    goBackButtonClick = {
-                        navController.popUpTo { it == NavHostDestination.First }
-                    }
-                )
-            }
-        }
+    NavigationHost(controller = navController) { //destination ->
+//        when (destination) {
+//            NavHostDestination.First -> FirstScreen(
+//                toSecondScreenButtonClick = {
+//                    navController.navigate(NavHostDestination.Second(id = 0))
+//                },
+//            )
+//            is NavHostDestination.Second -> SecondScreen(
+//                id = destination.id,
+//                toSecondScreenButtonClick = {
+//                    navController.navigate(NavHostDestination.Second(id = destination.id + 1))
+//                },
+//                toThirdScreenButtonClick = {
+//                    navController.navigate(NavHostDestination.Third)
+//                }
+//            )
+//            NavHostDestination.Third -> ThirdScreen(
+//                toForthScreenButtonClick = {
+//                    navController.navigate(NavHostDestination.Forth())
+//                }
+//            )
+//            is NavHostDestination.Forth -> {
+//                var resultFromFifth by destination.resultFromFifth
+//                ForthScreen(
+//                    resultFromFifth = resultFromFifth,
+//                    toFifthScreenButtonClick = {
+//                        navController.navigate(NavHostDestination.Fifth)
+//                    },
+//                    onClearResultClick = {
+//                        resultFromFifth = null
+//                    }
+//                )
+//            }
+//            is NavHostDestination.Fifth -> {
+//                var text by rememberSaveable { mutableStateOf("") }
+//                FifthScreen(
+//                    text = text,
+//                    onTextChange = { text = it },
+//                    backToForthScreenButtonClick = {
+//                        val previousDestination = navController.backstack.entries.let {
+//                            it[it.lastIndex - 1].destination
+//                        }
+//                        check(previousDestination is AcceptsResultFromFifth)
+//                        previousDestination.resultFromFifth.value = text
+//                        navController.pop()
+//                    },
+//                    goBackButtonClick = {
+//                        navController.popUpTo { it == NavHostDestination.First }
+//                    }
+//                )
+//            }
+//        }
     }
 }
 

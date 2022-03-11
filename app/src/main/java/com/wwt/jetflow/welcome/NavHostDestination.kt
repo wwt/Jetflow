@@ -15,32 +15,19 @@ import kotlinx.parcelize.RawValue
 @Stable
 sealed class NavHostDestination : Parcelable {
 
-    @Immutable
-    @Parcelize
-    object First : NavHostDestination()
+
 
     @Immutable
     @Parcelize
-    data class Second(val id: Int) : NavHostDestination()
+    object Login : NavHostDestination()
 
     @Immutable
     @Parcelize
-    object Third : NavHostDestination()
+    data class ServiceType(val email: String ) : NavHostDestination()
 
-    /*
-     * 1) The type may be @Stable, not only @Immutable. This guarantee is backed up by MutableState
-     *    here.
-     * 2) MutableState is Parcelable, it's just doesn't expose this interface, so we are fine.
-     */
-    @Stable
-    @Parcelize
-    data class Forth(
-        override val resultFromFifth: @RawValue MutableState<String?> = mutableStateOf(null)
-    ) : NavHostDestination(), AcceptsResultFromFifth
 
-    @Immutable
-    @Parcelize
-    object Fifth : NavHostDestination()
+
+
 
 }
 
