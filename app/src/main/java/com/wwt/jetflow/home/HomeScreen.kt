@@ -1,10 +1,7 @@
 package com.wwt.jetflow.home
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
+import com.wwt.jetflow.home.login.LoginScreen
 import com.wwt.jetflow.welcome.NavHostDestination
 import com.wwt.jetflowlibrary.navigation.NavigationBackHandler
 import com.wwt.jetflowlibrary.navigation.NavigationHost
@@ -22,12 +19,9 @@ fun HomeScreen() {
         when (destination) {
 
             NavHostDestination.Login -> {
-                var text by rememberSaveable { mutableStateOf("") }
                 LoginScreen(
-                    userEmail = text,
-                    onTextChange = { text = it },
-                    loginButtonClick = {
-                        navController.navigate(NavHostDestination.ServiceType(email = text))
+                    loginButtonClick = { emailText ->
+                        navController.navigate(NavHostDestination.ServiceType(email = emailText))
                     },
                 )
             }
@@ -37,9 +31,6 @@ fun HomeScreen() {
                     toSecondScreenButtonClick = {
 //                        navController.navigate(NavHostDestination.ServiceType(id = destination.id + 1))
                     },
-//                toThirdScreenButtonClick = {
-//                    navController.navigate(NavHostDestination.Third)
-//                }
                 )
         }
     }

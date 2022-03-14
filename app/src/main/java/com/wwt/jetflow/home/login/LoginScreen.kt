@@ -1,6 +1,8 @@
-package com.wwt.jetflow.home
+package com.wwt.jetflow.home.login
 
+import android.util.Log
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.Button
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
@@ -9,24 +11,33 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.wwt.jetflow.SubScreenLayout
+import org.koin.androidx.compose.viewModel
 
 @Composable
 fun LoginScreen(
-    userEmail: String,
-    onTextChange: (String) -> Unit,
-    loginButtonClick: () -> Unit,
-) = SubScreenLayout(title = "Login screen") {
-    val email = remember { mutableStateOf(TextFieldValue()) }
+    loginButtonClick: (String) -> Unit
+) = SubScreenLayout(title = "LOGIN ") {
+
+    val loginViewModel: LoginViewModel by viewModel()
+    val state: LoginScreenContract.State = loginViewModel.viewState.value
+
     val emailErrorState = remember { mutableStateOf(false) }
     val passwordErrorState = remember { mutableStateOf(false) }
-    val password = remember { mutableStateOf(TextFieldValue()) }
     OutlinedTextField(
-        value = userEmail,
-        onValueChange = onTextChange,
+        value = state.email,
+        onValueChange = {
+            Log.v("value", "value: $it")
+            if (emailErrorState.value) {
+                emailErrorState.value = false
+            }
+            loginViewModel.setEmail(it)
+        },
         isError = emailErrorState.value,
         modifier = Modifier.fillMaxWidth(),
         label = {
@@ -36,12 +47,12 @@ fun LoginScreen(
 
     val passwordVisibility = remember { mutableStateOf(true) }
     OutlinedTextField(
-        value = password.value,
+        value = state.password,
         onValueChange = {
             if (passwordErrorState.value) {
                 passwordErrorState.value = false
             }
-            password.value = it
+            loginViewModel.setPassword(it)
         },
         isError = passwordErrorState.value,
         modifier = Modifier.fillMaxWidth(),
@@ -51,15 +62,17 @@ fun LoginScreen(
         visualTransformation = if (passwordVisibility.value) PasswordVisualTransformation() else VisualTransformation.None
     )
 
-    Button(onClick = loginButtonClick) {
-
-        Text("Login")
+    Button(onClick = { loginButtonClick(state.email) }) {
+        Text(
+            "Login", fontSize = 18.sp, textAlign = TextAlign.Center, modifier = Modifier
+                .width(150.dp)
+        )
     }
-
 }
+
 
 @Composable
 @Preview
-private fun LoginPreview(){
+private fun LoginPreview() {
 //    LoginScreen {}
 }
