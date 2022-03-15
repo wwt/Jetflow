@@ -11,7 +11,7 @@ object AppModule : KoinComponent {
 
         val genericModules = module {
             single { ResourcesHelper(get()) }
-            single { LoginViewModel() }
+            single { LoginViewModel(get()) }
         }
 
         val moduleList = listOf(

@@ -10,7 +10,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import com.wwt.jetflow.CenteredText
 import com.wwt.jetflow.SubScreenLayout
-import com.wwt.jetflow.singleLine
+import com.wwt.jetflow.utilis.singleLine
 import com.wwt.jetflowlibrary.navigation.*
 
 @Composable

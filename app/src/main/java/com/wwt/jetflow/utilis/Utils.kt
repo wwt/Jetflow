@@ -1,4 +1,4 @@
-package com.wwt.jetflow
+package com.wwt.jetflow.utilis
 
 fun String.singleLine(separator: String = " ") = lineSequence()
     .map { it.trim() }
