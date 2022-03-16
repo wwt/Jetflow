@@ -1,57 +1,57 @@
 name: Release
 on:
   workflow_dispatch:
-#   workflow_run:
-#     workflows: [ "CI" ]
-#     branches: [ main ]
-#     types: [ completed ]
+  workflow_run:
+    workflows: [ "android_CI" ]
+    branches: [ main ]
+    types: [ completed ]
 
-# jobs:
-#   publish:
-#     name: Release
-#     runs-on: macos-latest
+jobs:
+  publish:
+    name: Release
+    runs-on: macos-latest
 
-#     steps:
-#       - name: Checkout repository
-#         uses: actions/checkout@v2
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-#       - name: Set up JDK 11
-#         uses: actions/setup-java@v2
-#         with:
-#           java-version: '11'
-#           distribution: 'adopt'
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
 
-#       - name: Grant Permission to Execute Gradle
-#         run: chmod +x gradlew
+      - name: Grant Permission to Execute Gradle
+        run: chmod +x gradlew
 
-#       - name: Build with Gradle
-#         uses: gradle/gradle-build-action@v2
-#         with:
-#           arguments: build
+      - name: Build with Gradle
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: build
 
-#       - name: read version number
-#         id: buildnumber
-#         run: |
-#           echo ::set-output name=versionName::$(./gradlew -q pV)
+      - name: read version number
+        id: buildnumber
+        run: |
+          echo ::set-output name=versionName::$(./gradlew -q pV)
 
-#       - name: Create and push tag
-#         run: |
-#           git config --global user.email "jetflow@wwt.com"
-#           git config --global user.name "$GITHUB_ACTOR"
-#           git tag -a $TAG -m "Release v$TAG"
-#           git push origin $TAG
-#         env:
-#           token: ${{ secrets.PAT }}
-#           TAG: ${{ steps.buildnumber.outputs.versionName }}
+      - name: Create and push tag
+        run: |
+          git config --global user.email "jetflow@wwt.com"
+          git config --global user.name "$GITHUB_ACTOR"
+          git tag -a $TAG -m "Release v$TAG"
+          git push origin $TAG
+        env:
+          token: ${{ secrets.PAT }}
+          TAG: ${{ steps.buildnumber.outputs.versionName }}
 
-#       - name: Create Release on GitHub
-#         id: create_release
-#         uses: ncipollo/release-action@v1
-#         env:
-#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#         with:
-#           token: ${{ secrets.PAT }}
-#           tag: ${{ steps.buildnumber.outputs.versionName }}
-#           name: version ${{ steps.buildnumber.outputs.versionName }}
-#           draft: false
-#           prerelease: false
+      - name: Create Release on GitHub
+        id: create_release
+        uses: ncipollo/release-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          token: ${{ secrets.PAT }}
+          tag: ${{ steps.buildnumber.outputs.versionName }}
+          name: version ${{ steps.buildnumber.outputs.versionName }}
+          draft: false
+          prerelease: false
