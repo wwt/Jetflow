@@ -2,7 +2,7 @@ name: Deploy_documentation
 on:
    workflow_dispatch:
    workflow_run:
-     workflows: [ "Android_CI" ]
+     workflows: [ "CI" ]
      branches: [ main ]
      types: [ completed ]
 
