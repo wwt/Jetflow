@@ -33,7 +33,6 @@ jobs:
           echo "Published✅"
           echo "Releasing repository...🚀"
           ./gradlew closeAndReleaseRepository
-# --repository iogithubbrahmamp-1017
           echo "Released✅"
         env:
           ORG_GRADLE_PROJECT_VERSION_NAME: ${{ steps.buildnumber.outputs.versionName }}
