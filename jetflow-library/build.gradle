@@ -5,6 +5,7 @@ plugins {
     id 'kotlin-parcelize'
     id 'org.jetbrains.dokka'
 }
+apply plugin: "com.vanniktech.maven.publish"
 
 android {
     compileSdk 31
