@@ -60,18 +60,6 @@ android {
     }
 }
 
-//tasks.dokkaHtml.configure {
-//    outputDirectory.set(file("../app/build/documentation/html"))
-//}
-//
-//tasks.dokkaJavadoc.configure {
-//    outputDirectory.set(file("../app/build/documentation/javadoc"))
-//}
-//
-//tasks.dokkaGfm.configure {
-//    outputDirectory.set(file("../app/build/documentation/gfm"))
-//}
-
 tasks.withType(dokkaHtml.getClass()).configureEach {
     pluginsMapConfiguration.set(
             ["org.jetbrains.dokka.base.DokkaBase": """{ "separateInheritedMembers": true}"""]
