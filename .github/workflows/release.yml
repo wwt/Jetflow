@@ -1,8 +1,8 @@
 name: Release
 on:
   workflow_run:
-    workflows: [ "CI" ]
-    branches: [ main ]
+    workflows: [ "Android_CI" ]
+    branches: [ dev ]
     types: [ completed ]
 
 jobs:
