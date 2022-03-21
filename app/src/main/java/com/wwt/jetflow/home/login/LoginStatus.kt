@@ -13,11 +13,14 @@ data class LoginStatus(val status: Status, val message: String?) {
         fun passwordError(msg: String): LoginStatus {
             return LoginStatus(Status.PASSWORD_ERROR, msg)
         }
+
+        fun empty():LoginStatus = LoginStatus(Status.EMPTY, "")
     }
 }
 
 enum class Status {
     SUCCESS,
     EMAIL_ERROR,
-    PASSWORD_ERROR;
+    PASSWORD_ERROR,
+    EMPTY;
 }

@@ -1,54 +1,55 @@
 package com.wwt.jetflow.home
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Button
-import androidx.compose.material.RadioButton
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 @Composable
 fun ServiceTypeScreen(
-    email: String,
-    toSecondScreenButtonClick: () -> Unit
-//    toThirdScreenButtonClick: () -> Unit
+    email: String
 ) {
-    val scrollState = rememberScrollState()
-    Column(modifier = Modifier
-        .fillMaxSize()
-        .verticalScroll(scrollState)
-        .padding(horizontal = 32.dp, vertical = 16.dp),
-        verticalArrangement = Arrangement.spacedBy(16.dp)) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(horizontal = 32.dp, vertical = 16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
 
-        Text(text = "Welcome ${email}", modifier = Modifier.padding(top = 14.dp))
+        val name: String = email.substringBefore("@")
+        Text(
+            text = "Welcome $name",
+            color = Color.Blue,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.padding(top = 14.dp),
+            fontSize = 24.sp
+        )
 
-        Row {
-            RadioButton(selected = false, onClick = { /*TODO*/ })
-            Text(text = "Delivery", modifier = Modifier.padding(top = 14.dp))
+        Text(
+            text = "Select Service type to place an order",
+            modifier = Modifier.padding(top = 14.dp), fontSize = 20.sp
+        )
+        Spacer(modifier = Modifier.height(20.dp))
+
+        Button(onClick = { }) {
+            Text(
+                "Delivery", fontSize = 18.sp, textAlign = TextAlign.Center, modifier = Modifier
+                    .width(150.dp)
+            )
         }
-
-        Row {
-            RadioButton(selected = false, onClick = { /*TODO*/ })
-            Text(text = "Pick-up", modifier = Modifier.padding(top = 14.dp))
-        }
-
-        Column(
-            modifier = Modifier.fillMaxWidth().fillMaxHeight(),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Button(onClick = toSecondScreenButtonClick, ) {
-                Text("Continue")
-            }
+        Button(onClick = {}) {
+            Text(
+                "Pick-up", fontSize = 18.sp, textAlign = TextAlign.Center, modifier = Modifier
+                    .width(150.dp)
+            )
         }
 
     }
 
-//    Button(onClick = toThirdScreenButtonClick) {
-//        Text("To Third screen")
-//    }
 }

@@ -1,12 +1,10 @@
-package com.wwt.jetflow.welcome
+package com.wwt.jetflow
 
 import android.os.Parcelable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.Stable
-import androidx.compose.runtime.mutableStateOf
 import kotlinx.parcelize.Parcelize
-import kotlinx.parcelize.RawValue
 
 /**
  * In many cases Compose can detect stability/immutability by itself. In some cases you may

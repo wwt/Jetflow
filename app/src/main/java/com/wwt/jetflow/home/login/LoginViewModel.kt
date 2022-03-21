@@ -1,7 +1,9 @@
 package com.wwt.jetflow.home.login
 
 import android.util.Patterns
-import androidx.lifecycle.MediatorLiveData
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.viewModelScope
 import com.wwt.jetflow.R
 import com.wwt.jetflow.base.BaseViewModel
@@ -39,7 +41,7 @@ class LoginViewModel(private val resourcesHelper: ResourcesHelper) :
         }
     }
 
-    val user = MediatorLiveData<LoginStatus>()
+    var user: LoginStatus by mutableStateOf(LoginStatus.empty())
 
     private fun isEmailValid(emailAddress: String): Boolean {
         return Patterns.EMAIL_ADDRESS.matcher(emailAddress).matches()
@@ -47,15 +49,15 @@ class LoginViewModel(private val resourcesHelper: ResourcesHelper) :
 
     fun login(email: String, password: String) {
         if (email.isEmpty()) {
-            user.postValue(LoginStatus.emailError(resourcesHelper.getStringResource(R.string.error_email_empty)))
+            user = LoginStatus.emailError(resourcesHelper.getStringResource(R.string.error_email_empty))
         } else if (!isEmailValid(email)) {
-            user.postValue(LoginStatus.emailError(resourcesHelper.getStringResource(R.string.error_email)))
+            user =LoginStatus.emailError(resourcesHelper.getStringResource(R.string.error_email))
         } else if (password.isEmpty()) {
-            user.postValue(LoginStatus.passwordError(resourcesHelper.getStringResource(R.string.error_password_empty)))
+            user =LoginStatus.passwordError(resourcesHelper.getStringResource(R.string.error_password_empty))
         } else if (password.length <= 6) {
-            user.postValue(LoginStatus.passwordError(resourcesHelper.getStringResource(R.string.error_password_length)))
+            user =LoginStatus.passwordError(resourcesHelper.getStringResource(R.string.error_password_length))
         } else {
-            user.postValue(LoginStatus.success())
+            user =LoginStatus.success()
         }
     }
 }

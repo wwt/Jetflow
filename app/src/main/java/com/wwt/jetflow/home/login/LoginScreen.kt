@@ -1,6 +1,5 @@
 package com.wwt.jetflow.home.login
 
-import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -9,8 +8,10 @@ import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
-import androidx.compose.runtime.*
-import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
@@ -31,7 +32,7 @@ fun LoginScreen(
     val loginViewModel: LoginViewModel by viewModel()
     val state: LoginScreenContract.State = loginViewModel.viewState.value
 
-    val user by loginViewModel.user.observeAsState()
+    val user= loginViewModel.user
 
     val emailErrorState = remember { mutableStateOf(false) }
     val passwordErrorState = remember { mutableStateOf(false) }
@@ -43,24 +44,24 @@ fun LoginScreen(
         focusRequester.requestFocus()
     }
 
-    when (user?.status) {
+    when (user.status) {
         Status.SUCCESS -> {
             emailErrorState.value = false
             passwordErrorState.value = false
             emailErrorText.value = ""
             passwordErrorText.value = ""
-            Log.v("test", "status: $user")
+            loginViewModel.user= LoginStatus.empty()
             loginButtonClick(state.email)
         }
         Status.EMAIL_ERROR -> {
             emailErrorState.value = true
-            emailErrorText.value = user!!.message.toString()
+            emailErrorText.value = user.message.toString()
         }
         Status.PASSWORD_ERROR -> {
             emailErrorState.value = false
             emailErrorText.value = ""
             passwordErrorState.value = true
-            passwordErrorText.value = user!!.message.toString()
+            passwordErrorText.value = user.message.toString()
         }
         else -> {
             emailErrorState.value = false
@@ -82,6 +83,7 @@ fun LoginScreen(
             label = {
                 Text(text = "Enter Email")
             },
+            singleLine = true,
             modifier = Modifier
                 .fillMaxWidth()
                 .focusRequester(focusRequester),
@@ -103,6 +105,7 @@ fun LoginScreen(
                 passwordErrorState.value = false
                 loginViewModel.setPassword(it)
             },
+            singleLine = true,
             isError = passwordErrorState.value,
             modifier = Modifier.fillMaxWidth(),
             label = {
