@@ -13,6 +13,41 @@ $dokka.location:com.wwt.jetflow.base/BaseViewModel/viewState/#/PointingToDeclara
 $dokka.location:com.wwt.jetflow.base/ViewEvent///PointingToDeclaration/app/com.wwt.jetflow.base/-view-event/index.html
 $dokka.location:com.wwt.jetflow.base/ViewSideEffect///PointingToDeclaration/app/com.wwt.jetflow.base/-view-side-effect/index.html
 $dokka.location:com.wwt.jetflow.base/ViewState///PointingToDeclaration/app/com.wwt.jetflow.base/-view-state/index.html
+$dokka.location:com.wwt.jetflow.home.login////PointingToDeclaration/app/com.wwt.jetflow.home.login/index.html
+$dokka.location:com.wwt.jetflow.home.login//LoginScreen/#kotlin.Function1[kotlin.String,kotlin.Unit]/PointingToDeclaration/app/com.wwt.jetflow.home.login/-login-screen.html
+$dokka.location:com.wwt.jetflow.home.login/LoginScreenContract.Effect///PointingToDeclaration/app/com.wwt.jetflow.home.login/-login-screen-contract/-effect/index.html
+$dokka.location:com.wwt.jetflow.home.login/LoginScreenContract.Event///PointingToDeclaration/app/com.wwt.jetflow.home.login/-login-screen-contract/-event/index.html
+$dokka.location:com.wwt.jetflow.home.login/LoginScreenContract.State///PointingToDeclaration/app/com.wwt.jetflow.home.login/-login-screen-contract/-state/index.html
+$dokka.location:com.wwt.jetflow.home.login/LoginScreenContract.State/State/#kotlin.String#kotlin.String/PointingToDeclaration/app/com.wwt.jetflow.home.login/-login-screen-contract/-state/-state.html
+$dokka.location:com.wwt.jetflow.home.login/LoginScreenContract.State/email/#/PointingToDeclaration/app/com.wwt.jetflow.home.login/-login-screen-contract/-state/email.html
+$dokka.location:com.wwt.jetflow.home.login/LoginScreenContract.State/password/#/PointingToDeclaration/app/com.wwt.jetflow.home.login/-login-screen-contract/-state/password.html
+$dokka.location:com.wwt.jetflow.home.login/LoginScreenContract///PointingToDeclaration/app/com.wwt.jetflow.home.login/-login-screen-contract/index.html
+$dokka.location:com.wwt.jetflow.home.login/LoginScreenContract/LoginScreenContract/#/PointingToDeclaration/app/com.wwt.jetflow.home.login/-login-screen-contract/-login-screen-contract.html
+$dokka.location:com.wwt.jetflow.home.login/LoginStatus.Companion///PointingToDeclaration/app/com.wwt.jetflow.home.login/-login-status/-companion/index.html
+$dokka.location:com.wwt.jetflow.home.login/LoginStatus.Companion/emailError/#kotlin.String/PointingToDeclaration/app/com.wwt.jetflow.home.login/-login-status/-companion/email-error.html
+$dokka.location:com.wwt.jetflow.home.login/LoginStatus.Companion/empty/#/PointingToDeclaration/app/com.wwt.jetflow.home.login/-login-status/-companion/empty.html
+$dokka.location:com.wwt.jetflow.home.login/LoginStatus.Companion/passwordError/#kotlin.String/PointingToDeclaration/app/com.wwt.jetflow.home.login/-login-status/-companion/password-error.html
+$dokka.location:com.wwt.jetflow.home.login/LoginStatus.Companion/success/#/PointingToDeclaration/app/com.wwt.jetflow.home.login/-login-status/-companion/success.html
+$dokka.location:com.wwt.jetflow.home.login/LoginStatus///PointingToDeclaration/app/com.wwt.jetflow.home.login/-login-status/index.html
+$dokka.location:com.wwt.jetflow.home.login/LoginStatus/LoginStatus/#com.wwt.jetflow.home.login.Status#kotlin.String?/PointingToDeclaration/app/com.wwt.jetflow.home.login/-login-status/-login-status.html
+$dokka.location:com.wwt.jetflow.home.login/LoginStatus/message/#/PointingToDeclaration/app/com.wwt.jetflow.home.login/-login-status/message.html
+$dokka.location:com.wwt.jetflow.home.login/LoginStatus/status/#/PointingToDeclaration/app/com.wwt.jetflow.home.login/-login-status/status.html
+$dokka.location:com.wwt.jetflow.home.login/LoginViewModel///PointingToDeclaration/app/com.wwt.jetflow.home.login/-login-view-model/index.html
+$dokka.location:com.wwt.jetflow.home.login/LoginViewModel/LoginViewModel/#com.wwt.jetflow.utilis.ResourcesHelper/PointingToDeclaration/app/com.wwt.jetflow.home.login/-login-view-model/-login-view-model.html
+$dokka.location:com.wwt.jetflow.home.login/LoginViewModel/handleEvents/#com.wwt.jetflow.home.login.LoginScreenContract.Event/PointingToDeclaration/app/com.wwt.jetflow.home.login/-login-view-model/handle-events.html
+$dokka.location:com.wwt.jetflow.home.login/LoginViewModel/login/#kotlin.String#kotlin.String/PointingToDeclaration/app/com.wwt.jetflow.home.login/-login-view-model/login.html
+$dokka.location:com.wwt.jetflow.home.login/LoginViewModel/setEmail/#kotlin.String/PointingToDeclaration/app/com.wwt.jetflow.home.login/-login-view-model/set-email.html
+$dokka.location:com.wwt.jetflow.home.login/LoginViewModel/setInitialState/#/PointingToDeclaration/app/com.wwt.jetflow.home.login/-login-view-model/set-initial-state.html
+$dokka.location:com.wwt.jetflow.home.login/LoginViewModel/setPassword/#kotlin.String/PointingToDeclaration/app/com.wwt.jetflow.home.login/-login-view-model/set-password.html
+$dokka.location:com.wwt.jetflow.home.login/LoginViewModel/user/#/PointingToDeclaration/app/com.wwt.jetflow.home.login/-login-view-model/user.html
+$dokka.location:com.wwt.jetflow.home.login/Status.EMAIL_ERROR///PointingToDeclaration/app/com.wwt.jetflow.home.login/-status/-e-m-a-i-l_-e-r-r-o-r/index.html
+$dokka.location:com.wwt.jetflow.home.login/Status.EMPTY///PointingToDeclaration/app/com.wwt.jetflow.home.login/-status/-e-m-p-t-y/index.html
+$dokka.location:com.wwt.jetflow.home.login/Status.PASSWORD_ERROR///PointingToDeclaration/app/com.wwt.jetflow.home.login/-status/-p-a-s-s-w-o-r-d_-e-r-r-o-r/index.html
+$dokka.location:com.wwt.jetflow.home.login/Status.SUCCESS///PointingToDeclaration/app/com.wwt.jetflow.home.login/-status/-s-u-c-c-e-s-s/index.html
+$dokka.location:com.wwt.jetflow.home.login/Status///PointingToDeclaration/app/com.wwt.jetflow.home.login/-status/index.html
+$dokka.location:com.wwt.jetflow.home////PointingToDeclaration/app/com.wwt.jetflow.home/index.html
+$dokka.location:com.wwt.jetflow.home//HomeScreen/#/PointingToDeclaration/app/com.wwt.jetflow.home/-home-screen.html
+$dokka.location:com.wwt.jetflow.home//ServiceTypeScreen/#kotlin.String/PointingToDeclaration/app/com.wwt.jetflow.home/-service-type-screen.html
 $dokka.location:com.wwt.jetflow.ui.theme////PointingToDeclaration/app/com.wwt.jetflow.ui.theme/index.html
 $dokka.location:com.wwt.jetflow.ui.theme//JetflowTheme/#kotlin.Boolean#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/app/com.wwt.jetflow.ui.theme/-jetflow-theme.html
 $dokka.location:com.wwt.jetflow.ui.theme//Purple200/#/PointingToDeclaration/app/com.wwt.jetflow.ui.theme/-purple200.html
@@ -21,36 +56,37 @@ $dokka.location:com.wwt.jetflow.ui.theme//Purple700/#/PointingToDeclaration/app
 $dokka.location:com.wwt.jetflow.ui.theme//Shapes/#/PointingToDeclaration/app/com.wwt.jetflow.ui.theme/-shapes.html
 $dokka.location:com.wwt.jetflow.ui.theme//Teal200/#/PointingToDeclaration/app/com.wwt.jetflow.ui.theme/-teal200.html
 $dokka.location:com.wwt.jetflow.ui.theme//Typography/#/PointingToDeclaration/app/com.wwt.jetflow.ui.theme/-typography.html
-$dokka.location:com.wwt.jetflow.welcome////PointingToDeclaration/app/com.wwt.jetflow.welcome/index.html
-$dokka.location:com.wwt.jetflow.welcome//NavHostScreen/#/PointingToDeclaration/app/com.wwt.jetflow.welcome/-nav-host-screen.html
-$dokka.location:com.wwt.jetflow.welcome/AcceptsResultFromFifth///PointingToDeclaration/app/com.wwt.jetflow.welcome/-accepts-result-from-fifth/index.html
-$dokka.location:com.wwt.jetflow.welcome/AcceptsResultFromFifth/resultFromFifth/#/PointingToDeclaration/app/com.wwt.jetflow.welcome/-accepts-result-from-fifth/result-from-fifth.html
-$dokka.location:com.wwt.jetflow.welcome/NavHostDestination.Fifth///PointingToDeclaration/app/com.wwt.jetflow.welcome/-nav-host-destination/-fifth/index.html
-$dokka.location:com.wwt.jetflow.welcome/NavHostDestination.First///PointingToDeclaration/app/com.wwt.jetflow.welcome/-nav-host-destination/-first/index.html
-$dokka.location:com.wwt.jetflow.welcome/NavHostDestination.Forth///PointingToDeclaration/app/com.wwt.jetflow.welcome/-nav-host-destination/-forth/index.html
-$dokka.location:com.wwt.jetflow.welcome/NavHostDestination.Forth/Forth/#androidx.compose.runtime.MutableState[kotlin.String?]/PointingToDeclaration/app/com.wwt.jetflow.welcome/-nav-host-destination/-forth/-forth.html
-$dokka.location:com.wwt.jetflow.welcome/NavHostDestination.Forth/resultFromFifth/#/PointingToDeclaration/app/com.wwt.jetflow.welcome/-nav-host-destination/-forth/result-from-fifth.html
-$dokka.location:com.wwt.jetflow.welcome/NavHostDestination.Second///PointingToDeclaration/app/com.wwt.jetflow.welcome/-nav-host-destination/-second/index.html
-$dokka.location:com.wwt.jetflow.welcome/NavHostDestination.Second/Second/#kotlin.Int/PointingToDeclaration/app/com.wwt.jetflow.welcome/-nav-host-destination/-second/-second.html
-$dokka.location:com.wwt.jetflow.welcome/NavHostDestination.Second/id/#/PointingToDeclaration/app/com.wwt.jetflow.welcome/-nav-host-destination/-second/id.html
-$dokka.location:com.wwt.jetflow.welcome/NavHostDestination.Third///PointingToDeclaration/app/com.wwt.jetflow.welcome/-nav-host-destination/-third/index.html
-$dokka.location:com.wwt.jetflow.welcome/NavHostDestination///PointingToDeclaration/app/com.wwt.jetflow.welcome/-nav-host-destination/index.html
+$dokka.location:com.wwt.jetflow.utilis////PointingToDeclaration/app/com.wwt.jetflow.utilis/index.html
+$dokka.location:com.wwt.jetflow.utilis//singleLine/kotlin.String#kotlin.String/PointingToDeclaration/app/com.wwt.jetflow.utilis/single-line.html
+$dokka.location:com.wwt.jetflow.utilis/ResourcesHelper///PointingToDeclaration/app/com.wwt.jetflow.utilis/-resources-helper/index.html
+$dokka.location:com.wwt.jetflow.utilis/ResourcesHelper/ResourcesHelper/#android.content.Context/PointingToDeclaration/app/com.wwt.jetflow.utilis/-resources-helper/-resources-helper.html
+$dokka.location:com.wwt.jetflow.utilis/ResourcesHelper/getStringResource/#kotlin.Int#kotlin.String#kotlin.String/PointingToDeclaration/app/com.wwt.jetflow.utilis/-resources-helper/get-string-resource.html
+$dokka.location:com.wwt.jetflow.utilis/ResourcesHelper/getStringResource/#kotlin.Int#kotlin.String/PointingToDeclaration/app/com.wwt.jetflow.utilis/-resources-helper/get-string-resource.html
+$dokka.location:com.wwt.jetflow.utilis/ResourcesHelper/getStringResource/#kotlin.Int/PointingToDeclaration/app/com.wwt.jetflow.utilis/-resources-helper/get-string-resource.html
 $dokka.location:com.wwt.jetflow////PointingToDeclaration/app/com.wwt.jetflow/index.html
 $dokka.location:com.wwt.jetflow//CenteredText/#kotlin.String/PointingToDeclaration/app/com.wwt.jetflow/-centered-text.html
-$dokka.location:com.wwt.jetflow//DefaultPreview/#/PointingToDeclaration/app/com.wwt.jetflow/-default-preview.html
 $dokka.location:com.wwt.jetflow//DialogLayout/#kotlin.String#kotlin.Function1[androidx.compose.foundation.layout.ColumnScope,kotlin.Unit]/PointingToDeclaration/app/com.wwt.jetflow/-dialog-layout.html
 $dokka.location:com.wwt.jetflow//ScreenLayout/#kotlin.String#kotlin.Function1[androidx.compose.foundation.layout.ColumnScope,kotlin.Unit]/PointingToDeclaration/app/com.wwt.jetflow/-screen-layout.html
 $dokka.location:com.wwt.jetflow//SubScreenLayout/#kotlin.String#kotlin.Function1[androidx.compose.foundation.layout.ColumnScope,kotlin.Unit]/PointingToDeclaration/app/com.wwt.jetflow/-sub-screen-layout.html
-$dokka.location:com.wwt.jetflow//singleLine/kotlin.String#kotlin.String/PointingToDeclaration/app/com.wwt.jetflow/single-line.html
+$dokka.location:com.wwt.jetflow/AcceptsResultFromFifth///PointingToDeclaration/app/com.wwt.jetflow/-accepts-result-from-fifth/index.html
+$dokka.location:com.wwt.jetflow/AcceptsResultFromFifth/resultFromFifth/#/PointingToDeclaration/app/com.wwt.jetflow/-accepts-result-from-fifth/result-from-fifth.html
 $dokka.location:com.wwt.jetflow/AppModule///PointingToDeclaration/app/com.wwt.jetflow/-app-module/index.html
+$dokka.location:com.wwt.jetflow/AppModule/init/#/PointingToDeclaration/app/com.wwt.jetflow/-app-module/init.html
 $dokka.location:com.wwt.jetflow/JetflowApplication///PointingToDeclaration/app/com.wwt.jetflow/-jetflow-application/index.html
 $dokka.location:com.wwt.jetflow/JetflowApplication/JetflowApplication/#/PointingToDeclaration/app/com.wwt.jetflow/-jetflow-application/-jetflow-application.html
 $dokka.location:com.wwt.jetflow/JetflowApplication/onCreate/#/PointingToDeclaration/app/com.wwt.jetflow/-jetflow-application/on-create.html
 $dokka.location:com.wwt.jetflow/JetflowApplication/onTerminate/#/PointingToDeclaration/app/com.wwt.jetflow/-jetflow-application/on-terminate.html
 $dokka.location:com.wwt.jetflow/MainActivity///PointingToDeclaration/app/com.wwt.jetflow/-main-activity/index.html
 $dokka.location:com.wwt.jetflow/MainActivity/MainActivity/#/PointingToDeclaration/app/com.wwt.jetflow/-main-activity/-main-activity.html
+$dokka.location:com.wwt.jetflow/NavHostDestination.Login///PointingToDeclaration/app/com.wwt.jetflow/-nav-host-destination/-login/index.html
+$dokka.location:com.wwt.jetflow/NavHostDestination.ServiceType///PointingToDeclaration/app/com.wwt.jetflow/-nav-host-destination/-service-type/index.html
+$dokka.location:com.wwt.jetflow/NavHostDestination.ServiceType/ServiceType/#kotlin.String/PointingToDeclaration/app/com.wwt.jetflow/-nav-host-destination/-service-type/-service-type.html
+$dokka.location:com.wwt.jetflow/NavHostDestination.ServiceType/email/#/PointingToDeclaration/app/com.wwt.jetflow/-nav-host-destination/-service-type/email.html
+$dokka.location:com.wwt.jetflow/NavHostDestination///PointingToDeclaration/app/com.wwt.jetflow/-nav-host-destination/index.html
 com.wwt.jetflow
 com.wwt.jetflow.base
+com.wwt.jetflow.home
+com.wwt.jetflow.home.login
 com.wwt.jetflow.ui.theme
-com.wwt.jetflow.welcome
+com.wwt.jetflow.utilis
 
