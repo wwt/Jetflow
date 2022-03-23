@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Jetflow</string>
+    <string name="error_email">Enter valid Email Id</string>
+    <string name="error_email_empty">Enter Email Id</string>
+    <string name="error_password_empty">Enter Password</string>
+    <string name="error_password_length">Password length should be more than 6 characters</string>
 </resources>

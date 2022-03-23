@@ -12,6 +12,7 @@ class JetflowApplication : Application(){
         startKoin {
             androidContext(this@JetflowApplication)
         }
+        AppModule.init()
 
     }
 
