@@ -27,7 +27,6 @@ jobs:
         with:
           fail_ci_if_error: true # optional (default = false)
 
-
   build:
     name: Build project
     runs-on: macos-latest
