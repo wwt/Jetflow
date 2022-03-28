@@ -139,4 +139,6 @@ dependencies {
     // Mockito framework
     testImplementation "org.mockito:mockito-core:3.9.0"
     androidTestImplementation "org.mockito:mockito-core:3.9.0"
+
+    implementation 'org.mockito:mockito-android:4.4.0'
 }
