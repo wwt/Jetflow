@@ -3,9 +3,12 @@ package com.wwt.jetflowlibrary
 import android.content.Context
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createComposeRule
+import com.wwt.jetflow.home.HomeScreen
 import com.wwt.jetflow.home.login.LoginScreen
 import com.wwt.jetflow.home.login.LoginViewModel
+import com.wwt.jetflow.home.login.Status
 import com.wwt.jetflow.utilis.ResourcesHelper
+import org.junit.Assert
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -34,6 +37,7 @@ class LoginScreenTest {
 
     @Before
     fun setup() {
+        MockitoAnnotations.initMocks(this)
         resourceHelper = ResourcesHelper(context)
         mainViewModel = LoginViewModel(resourceHelper)
     }
@@ -117,5 +121,21 @@ class LoginScreenTest {
         Thread.sleep(5000)
         composeTestRule.onNodeWithText("Password length should be more than 6 characters")
             .assertIsDisplayed()//.assertExists()
+    }
+
+    @Test
+    fun shouldNavigateToServiceTypeScreenWhenLoginButtonClickedWithValidDetails() {
+        composeTestRule.setContent {
+            HomeScreen()
+        }
+        val login = composeTestRule.onNodeWithText("Login")
+        composeTestRule.onNodeWithText("Enter Email").performTextInput("test@wwt.com")
+
+        composeTestRule.onNodeWithText("Enter Password").performTextInput("12345678")
+
+        login.performClick()
+
+        composeTestRule.onNodeWithText("Welcome test").assertIsDisplayed()
+
     }
 }
