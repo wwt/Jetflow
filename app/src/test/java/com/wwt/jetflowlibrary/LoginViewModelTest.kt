@@ -1,8 +1,5 @@
 package com.wwt.jetflowlibrary
 
-import android.util.Patterns
-import androidx.core.util.PatternsCompat
-import androidx.core.util.PatternsCompat.EMAIL_ADDRESS
 import com.wwt.jetflow.R
 import com.wwt.jetflow.home.login.LoginViewModel
 import com.wwt.jetflow.home.login.Status
@@ -13,12 +10,8 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
-import org.mockito.Mockito
 import org.mockito.Mockito.`when`
-import org.mockito.Mockito.mock
 import org.mockito.junit.MockitoJUnitRunner
-import java.util.regex.Matcher
-import java.util.regex.Pattern
 
 @ExperimentalCoroutinesApi
 @RunWith(MockitoJUnitRunner::class)
@@ -59,26 +52,6 @@ class LoginViewModelTest {
         val email="test"
         `when`(resourcesHelper.getStringResource(R.string.error_email))
             .thenReturn("Enter valid Email Id")
-
-//        val patterns: PatternsCompat = mock(PatternsCompat::class.java)
-//        val pattern: Pattern = mock(Pattern::class.java)
-//        val matcher: Matcher = mock(Matcher::class.java)
-//
-////        Mockito.mockStatic(PatternsCompat::class.java).use { mocked ->
-////            mocked.`when`<Pattern> { EMAIL_ADDRESS }
-////                .thenReturn(pattern)
-////        }
-////        `when`(Patterns.EMAIL_ADDRESS.matcher(email).matches()).thenReturn(false)
-////        `when`(PatternsCompat.EMAIL_ADDRESS).thenReturn(pattern)
-//        `when`(pattern.matcher(email)).thenReturn(matcher)
-//        `when`(matcher.matches()).thenReturn(false)
-
-
-
-        `when`(testObject.isEmailValid(email)).thenReturn(false)
-
-
-
 
 
         testObject.login(email, "")
