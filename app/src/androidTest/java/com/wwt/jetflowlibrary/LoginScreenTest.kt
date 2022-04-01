@@ -6,9 +6,7 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import com.wwt.jetflow.home.HomeScreen
 import com.wwt.jetflow.home.login.LoginScreen
 import com.wwt.jetflow.home.login.LoginViewModel
-import com.wwt.jetflow.home.login.Status
 import com.wwt.jetflow.utilis.ResourcesHelper
-import org.junit.Assert
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -55,9 +53,10 @@ class LoginScreenTest {
         composeTestRule.setContent {
             LoginScreen(loginButtonClick = { })
         }
-        val login = composeTestRule.onNodeWithText("Login")
-        login.assertIsDisplayed()
-        login.performClick()
+        composeTestRule.onNodeWithText("Enter Email").performTextClearance()
+
+        composeTestRule.onNodeWithText("Login").performClick()
+
         composeTestRule.onNodeWithText("Enter your Email Id").assertExists()
     }
 
@@ -66,13 +65,11 @@ class LoginScreenTest {
         composeTestRule.setContent {
             LoginScreen(loginButtonClick = { })
         }
-        val login = composeTestRule.onNodeWithText("Login")
-        login.assertIsDisplayed()
-
         val email = composeTestRule.onNodeWithText("Enter Email")
         email.performTextClearance()
         email.performTextInput("test")
-        login.performClick()
+
+        composeTestRule.onNodeWithText("Login").performClick()
 
         composeTestRule.onNodeWithText("Enter valid Email Id").assertExists()
     }
@@ -82,11 +79,9 @@ class LoginScreenTest {
         composeTestRule.setContent {
             LoginScreen(loginButtonClick = { })
         }
-        val login = composeTestRule.onNodeWithText("Login")
-        login.assertIsDisplayed()
-
         composeTestRule.onNodeWithText("Enter Email").performTextInput("test@test.com")
-        login.performClick()
+
+        composeTestRule.onNodeWithText("Login").performClick()
 
         composeTestRule.onNodeWithText("Enter your Email Id").assertDoesNotExist()
     }
@@ -96,12 +91,14 @@ class LoginScreenTest {
         composeTestRule.setContent {
             LoginScreen(loginButtonClick = { })
         }
-        val login = composeTestRule.onNodeWithText("Login")
-        composeTestRule.onNodeWithText("Enter Email").performTextInput("test@test.com")
+        val email = composeTestRule.onNodeWithText("Enter Email")
+        email.performTextClearance()
+        email.performTextInput("test@test.com")
+        composeTestRule.onNodeWithText("Enter Password").performTextClearance()
 
-        login.performClick()
+        composeTestRule.onNodeWithText("Login").performClick()
 
-        composeTestRule.onNodeWithText("Enter your Password").assertIsDisplayed()//.assertExists()
+        composeTestRule.onNodeWithText("Enter your Password").assertIsDisplayed()
     }
 
     @Test
@@ -109,18 +106,19 @@ class LoginScreenTest {
         composeTestRule.setContent {
             LoginScreen(loginButtonClick = { })
         }
-        val login = composeTestRule.onNodeWithText("Login")
         val email = composeTestRule.onNodeWithText("Enter Email")
         email.performTextClearance()
         email.performTextInput("test@test.com")
-        composeTestRule.onNodeWithText("Enter Password").performTextInput("12345")
+        val password = composeTestRule.onNodeWithText("Enter Password")
+        password.performTextClearance()
+        password.performTextInput("12345")
 
-        login.performClick()
+        composeTestRule.onNodeWithText("Login").performClick()
 
-        composeTestRule.onNodeWithText("Enter Password").assertIsDisplayed()
+        password.assertIsDisplayed()
         Thread.sleep(5000)
         composeTestRule.onNodeWithText("Password length should be more than 6 characters")
-            .assertIsDisplayed()//.assertExists()
+            .assertIsDisplayed()
     }
 
     @Test
@@ -128,14 +126,11 @@ class LoginScreenTest {
         composeTestRule.setContent {
             HomeScreen()
         }
-        val login = composeTestRule.onNodeWithText("Login")
         composeTestRule.onNodeWithText("Enter Email").performTextInput("test@wwt.com")
-
         composeTestRule.onNodeWithText("Enter Password").performTextInput("12345678")
 
-        login.performClick()
+        composeTestRule.onNodeWithText("Login").performClick()
 
         composeTestRule.onNodeWithText("Welcome test").assertIsDisplayed()
-
     }
 }
